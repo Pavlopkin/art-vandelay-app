@@ -1,38 +1,60 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.navBar{
+  background-color: rgb(223, 169, 20);
+  height: 60px;
+  width: 100vw;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  border-bottom: 3px solid black;}
+.Logo{
+  width: 20%;
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+  align-items:center;}    
+.enlaces{
+  width: 80%;
+  display: flex;
+  justify-content: space-evenly;
+  list-style: none;
+  align-items: center;}
+.enlaces li{
+  margin-left: 20px;
+  font-size: 1.5em;
+  font-weight: 700;
+  color: rgb(255, 0, 0);
+  text-shadow: black 1px 1px;}
+.icono{
+  width: 20%;}
+/*estilo logo*/
+.menuHome {
+  text-decoration: none;
+  margin: 0 15px; }
+.menuHome:hover {
+  transform: scale(1.1, 1.1);
+  transition: 1s; }
+.menuOvalo {
+  transform: rotate(-15deg);
+  animation-name: ovalo;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  width: 150px;
+  height: 65px;
+  background-image: linear-gradient(yellow, orange);
+  border-radius: 50%;
+  box-shadow: black 2px 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+.menuText {
+  font-size: 18px;
+  font-style: italic;
+  color: red;
+  text-align: center;
+  font-weight: 800;
+  text-decoration: none;
+  padding: 0 5px;
+  text-shadow: black 1px 1px;
+  transform: rotate(15deg); }
+.menuTextespecial {
+  font-size: 31px;
+  text-shadow: black 2px 2px;
+  animation-name: logo;
+  animation-duration: 1s; }
