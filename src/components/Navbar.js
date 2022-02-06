@@ -5,8 +5,8 @@ const Navbar = () => {
         <div className="navBar">
             <div className="Logo">
                     <a className="menuHome" href="#">
-                        <div class="menuOvalo">
-                            <p class="menuText"><span class="menuTextespecial">A</span>rt <span class="menuTextespecial">V</span>andelay</p>
+                        <div className="menuOvalo">
+                            <p className="menuText"><span className="menuTextespecial">A</span>rt <span className="menuTextespecial">V</span>andelay</p>
                         </div>
                     </a>
             </div>
