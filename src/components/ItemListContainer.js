@@ -1,11 +1,11 @@
-import ItemCount from '../components/ItemCount';
+import ItemList from '../components/ItemList';
 
 
 const ItemListContainer = ({greeting}) => {
     return (
-        <div>
+        <div className='itemListcontainer'>
             <h2>{greeting}</h2>
-            <ItemCount stock="5" inicial="1" />
+            <ItemList />
         </div> 
     );
 }

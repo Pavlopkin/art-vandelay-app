@@ -9,10 +9,8 @@ function App() {
   return (
     <>
       <Navbar /> 
-      <ItemListContainer greeting="este es el ItemListContainer"/>
-    </>
-      
-    
+      <ItemListContainer greeting="Conozca nuestros productos"/>
+    </>  
   ); 
 }
 
