@@ -1,6 +1,7 @@
 import { useState } from 'react';
 
-const ItemCount = ({stock, inicial}) => {
+
+const ItemCount = ({stock, inicial, onAdd}) => {
     const [Cantidad, setCantidad] = useState(1); //hook
     const increment = () => {
         if(Cantidad < stock){
@@ -12,7 +13,6 @@ const ItemCount = ({stock, inicial}) => {
             setCantidad(Cantidad-1);
         }
     }
-    
     return (
         <>
             <div className="contador">
@@ -21,7 +21,7 @@ const ItemCount = ({stock, inicial}) => {
                     <p>{Cantidad}</p>
                     <button className="btnSign" onClick={increment}>+</button>
                 </div>
-                <button className="btnAgregar">Comprar</button>
+                <button onClick={() => onAdd(Cantidad)} className="btnAgregar">Comprar</button>
             </div>
         </>
     );

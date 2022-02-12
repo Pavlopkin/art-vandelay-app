@@ -1,4 +1,4 @@
-import Productos from '../components/Item'
+import Item from '../components/Item'
 import { useEffect, useState } from 'react';
 
 let is_stock = true;
@@ -67,12 +67,12 @@ function ItemList() {
         .then(data => setProducts(data))
         .catch((error) =>
         console.log('hubo un error. Ver los detalles aqui: ', error));
-  }); 
+  }, []); 
   
   return (
     <>{
         products.map(item => 
-          <Productos key={item.id}
+          <Item key={item.id}
             title={item.title}
             price={item.price}
             thumbnail={item.thumbnail}
