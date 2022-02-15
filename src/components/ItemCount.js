@@ -2,15 +2,15 @@ import { useState } from 'react';
 
 
 const ItemCount = ({stock, inicial, onAdd}) => {
-    const [Cantidad, setCantidad] = useState(1); //hook
+    const [cantidad, setCantidad] = useState(1); //hook
     const increment = () => {
-        if(Cantidad < stock){
-            setCantidad(Cantidad+1);
+        if(cantidad < stock){
+            setCantidad(cantidad+1);
         }
     }
     const decrease = () => {
-        if(Cantidad > inicial){
-            setCantidad(Cantidad-1);
+        if(cantidad > inicial){
+            setCantidad(cantidad-1);
         }
     }
     return (
@@ -18,10 +18,10 @@ const ItemCount = ({stock, inicial, onAdd}) => {
             <div className="contador">
                 <div className="botonera">
                     <button className="btnSign" onClick={decrease}>-</button>
-                    <p>{Cantidad}</p>
+                    <p>{cantidad}</p>
                     <button className="btnSign" onClick={increment}>+</button>
                 </div>
-                <button onClick={() => onAdd(Cantidad)} className="btnAgregar">Comprar</button>
+                <button onClick={() => onAdd(cantidad)} className="btnAgregar">Comprar</button>
             </div>
         </>
     );

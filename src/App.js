@@ -1,15 +1,13 @@
 import Navbar from './components/Navbar.js';
-
 import './App.css';
-import ItemListContainer from './components/ItemListContainer.js';
+import ItemDetailContainer from './components/ItemDetailContainer.js';
 
 
 function App() {
-   
   return (
     <>
       <Navbar /> 
-      <ItemListContainer greeting="Conozca nuestros productos"/>
+      <ItemDetailContainer/>
     </>  
   ); 
 }
