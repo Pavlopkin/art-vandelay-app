@@ -6,6 +6,7 @@ const data = [
       thumbnail: "https://pavlopkin.github.io/Art-Vandelay/assets/gore.png",
       price: "$ 25.000.-",
       stock: 25,
+      categoryId: 1,
     },
     {
       id: 2,
@@ -14,6 +15,7 @@ const data = [
       thumbnail: "https://pavlopkin.github.io/Art-Vandelay/assets/puffy.png",
       price: "$ 6.000.-",
       stock: 10,
+      categoryId: 1,
     },
     {
       id: 3,
@@ -22,6 +24,7 @@ const data = [
       thumbnail: "https://pavlopkin.github.io/Art-Vandelay/assets/boligrafo.png",
       price: "$ 1.500.-",
       stock: 5,
+      categoryId: 3,
     },
     {
       id: 4,
@@ -30,6 +33,7 @@ const data = [
       thumbnail: "https://pavlopkin.github.io/Art-Vandelay/assets/shoes.png",
       price: "$ 13.000.-",
       stock: 13,
+      categoryId: 2,
     },
     {
       id: 5,
@@ -38,6 +42,7 @@ const data = [
       thumbnail: "https://pavlopkin.github.io/Art-Vandelay/assets/fusilli.png",
       price: "$ 1.200.-",
       stock: 2,
+      categoryId: 3,
     },
     {
       id: 6,
@@ -46,7 +51,9 @@ const data = [
       thumbnail: "https://pavlopkin.github.io/Art-Vandelay/assets/bookof.png",
       price: "$ 3.500.-",
       stock: 100,
-    }
+      categoryId: 3,
+    },
+
   ];
 
 module.exports = {

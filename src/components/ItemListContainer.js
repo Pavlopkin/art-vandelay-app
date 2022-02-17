@@ -1,10 +1,8 @@
 import ItemList from '../components/ItemList';
 
-
-const ItemListContainer = ({greeting}) => {
+const ItemListContainer = () => {
     return (
-        <div className='itemListcontainer'>
-            <h2>{greeting}</h2>
+        <div>
             <ItemList />
         </div> 
     );

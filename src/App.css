@@ -21,6 +21,13 @@
   font-weight: 700;
   color: rgb(255, 0, 0);
   text-shadow: black 2px 1px;}
+.enlaces li:hover{
+  color: rgb(240, 135, 6);
+  transform: scale(1.1,1.1);
+  transition: 1s;}
+.enlaces Link{
+  text-decoration: none;
+}
 .icono{
   display: flex;
   justify-content: space-evenly;
@@ -56,6 +63,7 @@
   padding: 0 5px;
   text-shadow: black 1px 1px;
   transform: rotate(15deg); }
+
 .menuTextespecial {
   font-size: 31px;
   text-shadow: black 2px 2px;
@@ -114,13 +122,18 @@
   background-color: rgb(245, 78, 27);
 }
 .Producto{
-  width: 25%;
-  height: auto;
-  margin: 20px;
+  width: 250px;
+  height: 250px;
   text-align: center;
   background-color: rgb(238, 194, 74);
   padding: 10px;
   border-radius: 15%;
+  float: left;
+  margin: 20px 50px;
+}
+.Producto:hover{
+  background-color: crimson;
+  transition: 1s;
 }
 .Producto img{
   width: 150px;
@@ -129,18 +142,6 @@
 .Producto img:hover{
   transform: scale(1.2,1.2);
   transition: 1s;
-}
-.Producto p{
-  font-size: 0.8em;
-}
-.itemListcontainer{
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-}
-.itemListcontainer h2{
-  width: 100%;
-  text-align: center;
 }
 .btnAgregar{
   background-color: rgb(238, 194, 74);
@@ -171,4 +172,11 @@
 }
 .itemCount{
   float: left;
+}
+.estiloEnlace{
+  font-weight: 600;
+  text-decoration: none;
+  background-color: rgba(255, 255, 255, 0.582);
+  border-radius: 15%;
+  padding: 10px;
 }
