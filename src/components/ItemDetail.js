@@ -1,16 +1,17 @@
 import ItemCount from '../components/ItemCount';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import BotonCart from './BotonCart';
+import { CartContext } from './CartContext';
 
 const ItemDetail = ( {item} ) => {
     const [compra, setCompra] = useState(0);
+    const test = useContext(CartContext);
 
      const onAdd = (cantidad) => {
         if(cantidad !== 0){
         setCompra(cantidad)
         alert("Usted seleccionó " + cantidad + " productos");
-
-
+        test.addToCart(item, cantidad);
         }
     }
     console.log("se agregarán al carrito" +  compra + "unidades");
@@ -29,7 +30,7 @@ const ItemDetail = ( {item} ) => {
                 {
                     compra === 0   
                 ? <ItemCount stock={item.stock} inicial={compra} onAdd={onAdd} className="itemCount"/>
-                : <BotonCart/>
+                : <BotonCart />
                 }
             </div>
         }

@@ -5,7 +5,7 @@ const BotonCart = () => {
     
     return (
         <>
-            <Link style={{ textDecoration: "none" }} to='/cart'><button className='btnAgregar'>Agregar al Carrito</button></Link>
+            <Link style={{ textDecoration: "none" }} to='/cart'><button className='btnAgregar'>Ver carrito</button></Link>
          
           
         </>

@@ -183,3 +183,25 @@
 .carritoCompras{
   margin: 30px 160px;
 }
+.productoCart{
+  width: 100%;
+  height: auto;
+  background-color: rgb(248, 215, 143);
+  margin-top: 5px;
+  padding: 10px 50px 10px 20px;
+  box-sizing: border-box;
+}
+.productoCart h2{
+  text-align: center;
+}
+.productoCart img{
+  width: 150px;
+  height: 150px;
+  margin-right: 65%;
+}
+.cajaCart{
+  display: flex;
+}
+.btnClean{
+  margin: 20px;
+}

@@ -1,4 +1,6 @@
+
 import imagen from '../assets/carrito.png';
+
 
 let contador = 5;
 
