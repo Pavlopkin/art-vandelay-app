@@ -1,6 +1,5 @@
-import { createContext, useState } from "react";
-
-
+import { createContext } from "react";
+import { useState } from "react";
 
 export const CartContext = createContext();
 
@@ -13,9 +12,9 @@ const CartContextProvider = ({children}) => {
         if(exist) {
             setCartList(
                 cartList.map((productos) => {
-                return { ...productos, cantidad: productos.cantidad + productos.cantidad};
+                        return {...productos, cantidad: productos.cantidad + cantidad};    
                 })
-            )
+            );    
         } else {
             setCartList([
                 ...cartList,
