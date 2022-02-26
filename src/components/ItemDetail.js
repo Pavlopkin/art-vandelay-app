@@ -2,6 +2,7 @@ import ItemCount from '../components/ItemCount';
 import { useContext, useState } from 'react';
 import BotonCart from './BotonCart';
 import { CartContext } from './CartContext';
+import cargando from '../assets/loading.gif';
 
 const ItemDetail = ( {item} ) => {
     const [compra, setCompra] = useState(0);
@@ -13,26 +14,32 @@ const ItemDetail = ( {item} ) => {
         alert("Usted seleccionó " + cantidad + " productos");
         test.addToCart(item, cantidad);
         }
-    }
-    console.log("se agregarán al carrito" +  compra + "unidades");
-    
+    }    
     return ( 
         <>
         {
-            <div>
-                <div className='ItemDetail' key={item.id}>
-                    <h1>{item.title}</h1>
-                    <img src={item.thumbnail} alt={item.title}/>
-                    <p>{item.description}</p>
-                    <p>Precio: {item.price}</p>
-                    <p>Unidades disponibles: {item.stock}</p>
-                </div>
-                {
-                    compra === 0   
-                ? <ItemCount stock={item.stock} inicial={compra} onAdd={onAdd} className="itemCount"/>
-                : <BotonCart />
-                }
+            
+            item.length === 0
+            ?<div className='loading'>
+                <img src={cargando} alt="cargando"/>
             </div>
+            :<div>
+                <div>
+                    <div className='ItemDetail' key={item.id}>
+                        <h1>{item.title}</h1>
+                        <img src={item.thumbnail} alt={item.title}/>
+                        <p>{item.description}</p>
+                        <p>Precio: {item.price}</p>
+                        <p>Unidades disponibles: {item.stock}</p>
+                    </div>
+                    {
+                        compra === 0   
+                    ? <ItemCount stock={item.stock} inicial={compra} onAdd={onAdd} className="itemCount"/>
+                    : <BotonCart />
+                    }
+                </div>
+            </div>
+            
         }
         </>
     );

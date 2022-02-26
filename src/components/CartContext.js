@@ -5,27 +5,25 @@ export const CartContext = createContext();
 
 const CartContextProvider = ({children}) => {
     const [cartList, setCartList] = useState([]);
-    console.log("probando", cartList)
 
     const addToCart = (item, cantidad) => {
-        const exist = cartList.find((cartItem)=> cartItem.id === item.id);
-        if(exist) {
-            setCartList(
-                cartList.map((productos) => {
-                        return {...productos, cantidad: productos.cantidad + cantidad};    
-                })
-            );    
-        } else {
+        let exist = cartList.find(product => product.id === item.id);
+        if (exist === undefined) {
             setCartList([
                 ...cartList,
                 {
-                id: item.id,
-                title: item.title,
-                thumbnail: item.thumbnail,
-                price: item.price,
-                cantidad: cantidad,
-            }]);
-        };
+                    id: item.id,
+                    title: item.title,
+                    thumbnail: item.thumbnail,
+                    price: item.price,
+                    cantidadItem: cantidad,
+                }
+
+            ]);
+        }else {
+            exist.cantidadItem += cantidad;
+        }
+
     }
     const deleteFromCart = (id) => {
         setCartList(cartList.filter((item)=>item.id !== id));
@@ -33,12 +31,30 @@ const CartContextProvider = ({children}) => {
     const refreshCart = () => {
         setCartList([]);
     }
-
+    const totalPorProducto = (id) => {
+        let index = cartList.map(item => item.id).indexOf(id);
+        return cartList[index].price * cartList[index].cantidadItem; 
+    }
+    const totalCarrito = () => {
+        let totalProducto = cartList.map(item => totalPorProducto(item.id));
+        return totalProducto.reduce((previousValue, currentValue) => previousValue + currentValue);
+    }
+    const totalCantidad = () => {
+        let totalCantidad = cartList.map(item => item.cantidadItem);
+        return totalCantidad.reduce(((previousValue, currentValue) => previousValue + currentValue),0);
+    }
+    const calculaIva = () => {
+        return totalCarrito() * 0.21;
+    }
+    const totalCompra = () => {
+        return calculaIva() + totalCarrito();
+    }
     return (
-        <CartContext.Provider value={{cartList, addToCart, deleteFromCart, refreshCart}}>
+        <CartContext.Provider value={{cartList, addToCart, deleteFromCart, refreshCart,  totalPorProducto, totalCarrito, totalCantidad, calculaIva, totalCompra}}>
             {children}
         </CartContext.Provider>
     );
 }
 
 export default CartContextProvider;
+
