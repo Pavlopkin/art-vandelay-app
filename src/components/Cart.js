@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 const Cart = ( ) => {
     const test = useContext(CartContext);
     const {deleteFromCart, refreshCart, totalPorProducto, totalCarrito, totalCantidad, calculaIva, totalCompra} = useContext(CartContext);
-  
+    let EnvioGratis = 50000;
     return(
         <>
             <h1 className='tituloCart'>SU COMPRA</h1>
@@ -60,7 +60,14 @@ const Cart = ( ) => {
                         <p>Subtotal: $ {totalCarrito()}</p>
                         <p>IVA (21%): $ {calculaIva()}</p><hr/>
                         <p className='totalCarrito'>TOTAL: $ {totalCompra()} </p>
-                    </div>        
+                    </div> 
+                    {
+                    totalCompra() > EnvioGratis &&
+                    <div className='envioGratis'> 
+                        <h4>Envío gratis en compras superiores a $ {EnvioGratis}!!</h4>
+                        <img src="https://i.gifer.com/32x8.gif" alt="camión logística"/>     
+                    </div>
+                    }
                 </div>      
             }   
         </>
