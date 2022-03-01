@@ -2,9 +2,12 @@ import Item from '../components/Item'
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import cargando from '../assets/loading.gif';
+import { collection, getDocs } from 'firebase/firestore';
+import db from '../utils/firebaseConfig';
 
-
+/*
 let is_stock = true;
+
 const data = [
   {
     id: 1,
@@ -89,10 +92,34 @@ const data = [
   },
 ];
 
+*/
+
 function ItemList() {
   const [products, setProducts] = useState([]);
   const {idCategory} = useParams();
  
+  useEffect(() => {
+    const firestoreFetch = async () => {
+      const querySnapshot = await getDocs(collection(db, "avdata"));
+      return querySnapshot.docs.map( document => ({
+        id: document.id,
+        ...document.data()
+      }))
+    }
+    firestoreFetch()
+      .then(result => setProducts(result))
+      .catch(error => console.log(error));  
+    }, [products]);
+
+    
+useEffect(() => {
+  return(() => {
+    setProducts([]);
+  })
+}, []);
+
+ 
+  /*
   const customFetch = (timeOut, data) => {
       return new Promise((resolve, reject) => {
           setTimeout(() => {
@@ -104,19 +131,22 @@ function ItemList() {
           }, timeOut);
       });
   };
+  */
+/*
   useEffect(() => {
     if(idCategory === undefined) {
-      customFetch(2000, data)
-        .then(data => setProducts(data))
+      customFetch(2000, products)
+        .then(products => setProducts(products))
         .catch((error) =>  console.log('hubo un error. Ver los detalles aqui: ', error));
     } else{
-      customFetch(2000, data.filter(item => item.categoryId === parseInt(idCategory)))
-        .then(data => setProducts(data))
+      customFetch(2000, products.filter(item => item.categoryId === parseInt(idCategory)))
+        .then(products => setProducts(products))
         .catch((error) => console.log('hubo un error. Ver los detalles aqui: ', error))
     }
   }, [idCategory]);
+*/
   
-  console.log("item item", products)
+
 
   if (products.length > 0) {
     return products.map(item => 
@@ -130,6 +160,8 @@ function ItemList() {
               <img src={cargando} alt="cargando"/>
             </div>
   }
+
+
 };
 
 export default ItemList;
