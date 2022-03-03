@@ -2,7 +2,7 @@ import Item from '../components/Item'
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import cargando from '../assets/loading.gif';
-import { collection, getDocs } from 'firebase/firestore';
+import { collection, getDocs, query, where } from 'firebase/firestore';
 import db from '../utils/firebaseConfig';
 
 /*
@@ -96,27 +96,56 @@ const data = [
 
 function ItemList() {
   const [products, setProducts] = useState([]);
-  const {idCategory} = useParams();
+  const  {idCategory}  = useParams();
  
-  useEffect(() => {
-    const firestoreFetch = async () => {
-      const querySnapshot = await getDocs(collection(db, "avdata"));
-      return querySnapshot.docs.map( document => ({
-        id: document.id,
-        ...document.data()
-      }))
-    }
+  
+  const firestoreFetch = async () => {
+  const querySnapshot = await getDocs(collection(db, "avdata"));
+  return querySnapshot.docs.map( document => ({
+    id: document.id,
+    ...document.data()
+  }));
+}
+ 
+const firestoreFetchCategory = async () =>{
+  const q = query(collection(db, "avdata"), where('categoryId', '==', parseInt(idCategory)));
+  const querySnapshot =await getDocs(q);
+  const dataFromFirestore = querySnapshot.docs.map(document => ({
+    id: document.id,
+    ...document.data()
+  }));
+  return dataFromFirestore;
+}
+
+
+useEffect(() => {
+  if(idCategory === undefined) {
+    firestoreFetch()
+      .then(result => setProducts(result))
+      .catch(error => console.log(error)); 
+  } else{
+    firestoreFetchCategory()
+    .then(result => setProducts(result))
+    .catch(error => console.log(error)); 
+  }
+}, [idCategory]);
+
+useEffect(() => {
+  return (() => {
+    setProducts([])
+  })
+}, []);
+
+
+/*
+    
     firestoreFetch()
       .then(result => setProducts(result))
       .catch(error => console.log(error));  
-    }, [products]);
+    }, [products]); */
 
     
-useEffect(() => {
-  return(() => {
-    setProducts([]);
-  })
-}, []);
+
 
  
   /*
