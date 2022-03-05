@@ -1,11 +1,10 @@
 import { createContext } from "react";
 import { useState } from "react";
 
-export const CartContext = createContext();
 
+export const CartContext = createContext();
 const CartContextProvider = ({children}) => {
     const [cartList, setCartList] = useState([]);
-
     const addToCart = (item, cantidad) => {
         let exist = cartList.find(product => product.id === item.id);
         if (exist === undefined) {
@@ -18,15 +17,13 @@ const CartContextProvider = ({children}) => {
                     price: item.price,
                     cantidadItem: cantidad,
                 }
-
             ]);
         }else {
             exist.cantidadItem += cantidad;
         }
-
     }
     const deleteFromCart = (id) => {
-        setCartList(cartList.filter((item)=>item.id !== id));
+            setCartList(cartList.filter((item)=>item.id !== id));
     }
     const refreshCart = () => {
         setCartList([]);

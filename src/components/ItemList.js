@@ -136,47 +136,6 @@ useEffect(() => {
   })
 }, []);
 
-
-/*
-    
-    firestoreFetch()
-      .then(result => setProducts(result))
-      .catch(error => console.log(error));  
-    }, [products]); */
-
-    
-
-
- 
-  /*
-  const customFetch = (timeOut, data) => {
-      return new Promise((resolve, reject) => {
-          setTimeout(() => {
-              if (is_stock) {
-                  resolve(data);
-              } else {
-                  reject('KO');
-              }
-          }, timeOut);
-      });
-  };
-  */
-/*
-  useEffect(() => {
-    if(idCategory === undefined) {
-      customFetch(2000, products)
-        .then(products => setProducts(products))
-        .catch((error) =>  console.log('hubo un error. Ver los detalles aqui: ', error));
-    } else{
-      customFetch(2000, products.filter(item => item.categoryId === parseInt(idCategory)))
-        .then(products => setProducts(products))
-        .catch((error) => console.log('hubo un error. Ver los detalles aqui: ', error))
-    }
-  }, [idCategory]);
-*/
-  
-
-
   if (products.length > 0) {
     return products.map(item => 
       <Item key={item.id}
@@ -189,8 +148,6 @@ useEffect(() => {
               <img src={cargando} alt="cargando"/>
             </div>
   }
-
-
 };
 
 export default ItemList;

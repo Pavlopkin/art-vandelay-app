@@ -3,6 +3,7 @@ import { useContext, useState } from 'react';
 import BotonCart from './BotonCart';
 import { CartContext } from './CartContext';
 import cargando from '../assets/loading.gif';
+import swal from 'sweetalert';
 
 const ItemDetail = ( {item} ) => {
     const [compra, setCompra] = useState(0);
@@ -10,8 +11,18 @@ const ItemDetail = ( {item} ) => {
 
      const onAdd = (cantidad) => {
         if(cantidad !== 0){
-        setCompra(cantidad)
-        alert("Usted seleccionó " + cantidad + " productos");
+        setCompra(cantidad);
+        const alertSelection = () => {
+            swal({
+                title: "Atención",
+                text: `Ha seleccionado ${cantidad} productos`,
+                icon: "info",
+                button: "confirmar",
+                timer: 5000,
+            })
+        }
+        alertSelection();
+        /*alert("Usted seleccionó " + cantidad + " productos");*/
         test.addToCart(item, cantidad);
         }
     }    
