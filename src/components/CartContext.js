@@ -38,9 +38,7 @@ const CartContextProvider = ({children}) => {
                   setCartList(cartList.filter((item)=>item.id !== id)), {
                     icon: "success",
                   });
-                } else {
-                  swal("Excelente! el producto sigue en carrito!");
-                }
+                } 
               });
     }
     const eliminaCarrito = () => {
@@ -60,9 +58,7 @@ const CartContextProvider = ({children}) => {
               eliminaCarrito(), {
                 icon: "success",
               });
-            } else {
-              swal("Excelente! conserva los productos en el carrito");
-            }
+            } 
           });
     }
     const totalPorProducto = (id) => {
