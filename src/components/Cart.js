@@ -54,7 +54,7 @@ const Cart = ( ) => {
                     stock: increment(-item.cantidadItem)
                 })
             })
-            test.refreshCart();})
+            test.eliminaCarrito();})
             .catch(error => console.log(error)); 
     }    
 

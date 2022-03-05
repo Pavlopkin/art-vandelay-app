@@ -1,5 +1,6 @@
 import { createContext } from "react";
 import { useState } from "react";
+import swal from "sweetalert";
 
 
 export const CartContext = createContext();
@@ -23,10 +24,46 @@ const CartContextProvider = ({children}) => {
         }
     }
     const deleteFromCart = (id) => {
-            setCartList(cartList.filter((item)=>item.id !== id));
+            /*setCartList(cartList.filter((item)=>item.id !== id));*/
+            swal({
+                title: "¿Está seguro?",
+                text: "Si confirma se borrará el producto de su carrito",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+              })
+              .then((willDelete) => {
+                if (willDelete) {
+                  swal("Se ha eliminado el producto del carrito",
+                  setCartList(cartList.filter((item)=>item.id !== id)), {
+                    icon: "success",
+                  });
+                } else {
+                  swal("Excelente! el producto sigue en carrito!");
+                }
+              });
+    }
+    const eliminaCarrito = () => {
+        setCartList([])
     }
     const refreshCart = () => {
-        setCartList([]);
+        swal({
+            title: "¿Está seguro?",
+            text: "Si confirma se borrarán todos los productos del carrito",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+          })
+          .then((willDelete) => {
+            if (willDelete) {
+              swal("Su carrito está vacío",
+              eliminaCarrito(), {
+                icon: "success",
+              });
+            } else {
+              swal("Excelente! conserva los productos en el carrito");
+            }
+          });
     }
     const totalPorProducto = (id) => {
         let index = cartList.map(item => item.id).indexOf(id);
@@ -47,7 +84,7 @@ const CartContextProvider = ({children}) => {
         return calculaIva() + totalCarrito();
     }
     return (
-        <CartContext.Provider value={{cartList, addToCart, deleteFromCart, refreshCart,  totalPorProducto, totalCarrito, totalCantidad, calculaIva, totalCompra}}>
+        <CartContext.Provider value={{cartList, addToCart, deleteFromCart, refreshCart, eliminaCarrito,  totalPorProducto, totalCarrito, totalCantidad, calculaIva, totalCompra}}>
             {children}
         </CartContext.Provider>
     );
