@@ -9,7 +9,7 @@ const Cart = ( ) => {
     const test = useContext(CartContext);
     const {deleteFromCart, refreshCart, totalPorProducto, totalCarrito, totalCantidad, calculaIva, totalCompra} = useContext(CartContext);
     let EnvioGratis = 50000;
-
+   
     
     const createOrder = () => {
         let order = {
@@ -29,12 +29,30 @@ const Cart = ( ) => {
         }
         console.log(order);
 
-        const createOrderFirestore = async () => {
+        /*const createOrderFirestore = async () => {
             const newOrderRef = doc(collection(db, 'orders'));
             await setDoc(newOrderRef, order);
             return newOrderRef;
+        } /*
+        /*const createOrderFirestore = async () => {
+            const newOrderRef = doc(collection(db, 'orders'));
+            await setDoc(newOrderRef, order);
+            return newOrderRef; 
+        } */
+
+        const createOrderFirestore = async () => {
+            const newOrderRef = doc(collection(db, 'orders'));
+            await setDoc(newOrderRef, order);
+            try {
+                return newOrderRef;
+            } catch (error) {
+                console.log(error);
+            }
         }
+
         
+
+
         createOrderFirestore()
             .then(result => { 
             /*alert('se ha creado la orden:' + result.id); */
@@ -100,8 +118,7 @@ const Cart = ( ) => {
                         <h3>DETALLE DEL PEDIDO</h3>
                         <p>Cantidad de productos: {totalCantidad()} </p><hr/>
                         {
-                        test.cartList.map(item => (   
-                           
+                        test.cartList.map(item => (       
                             <div key={item.id}>
                                 <p>{item.title} x {item.cantidadItem}</p>
                             </div>
