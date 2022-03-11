@@ -1,11 +1,16 @@
-import { Link } from 'react-router-dom';
+import {Link} from 'react-router-dom';
 
-const BotonCart = () => {
+
+const Item = (props) => {
     return (
-        <>
-            <Link style={{ textDecoration: "none" }} to='/cart'><button className='btnAgregar'>Ver carrito</button></Link>
-        </>
+        <div className="Producto">
+            <img src={props.thumbnail} alt={props.title} />
+            <div className="datosProducto">
+            <h3>{props.title}</h3>
+                <Link className="estiloEnlace" to={`/item/${props.id}`}>Ver más</Link>
+            </div>
+        </div>   
     );
 }
 
-export default BotonCart;
+export default Item;

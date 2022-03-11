@@ -13,6 +13,7 @@ function App() {
         <BrowserRouter>
         <Navbar />
         <Routes>
+          <Route path="/art-vandelay-app" element={<ItemListContainer />}/>
           <Route path="/" element={<ItemListContainer />} />
           <Route path="/item/:id" element={<ItemDetailContainer />} />
           <Route path="/category/:idCategory" element={<ItemList/>} />
