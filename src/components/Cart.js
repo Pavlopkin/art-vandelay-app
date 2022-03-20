@@ -5,12 +5,13 @@ import { serverTimestamp, setDoc, collection, doc, updateDoc, increment } from '
 import db from '../utils/firebaseConfig';
 import swal from 'sweetalert';
 
+//////////////////////////////////CARRITO//////////////////////////////////////////////////
 const Cart = ( ) => {
     const test = useContext(CartContext);
-    const {deleteFromCart, refreshCart, totalPorProducto, totalCarrito, totalCantidad, calculaIva, totalCompra} = useContext(CartContext);
+    const {deleteFromCart, refreshCart, totalProduct, totalCart, totalQty, tax, totalPurchase} = useContext(CartContext);
+    /*esta variable controla el banner que indica envio gratis*/
     let EnvioGratis = 50000;
-   
-    
+    ////////////////////////CREA ORDEN////////////////////////////
     const createOrder = () => {
         let order = {
             buyer: {
@@ -25,38 +26,19 @@ const Cart = ( ) => {
                 title: item.title,
                 cantidad: item.cantidadItem,
             }}),
-            total: totalCompra(),
+            total: totalPurchase(),
         }
-        console.log(order);
-
-        /*const createOrderFirestore = async () => {
-            const newOrderRef = doc(collection(db, 'orders'));
-            await setDoc(newOrderRef, order);
-            return newOrderRef;
-        } /*
-        /*const createOrderFirestore = async () => {
-            const newOrderRef = doc(collection(db, 'orders'));
-            await setDoc(newOrderRef, order);
-            return newOrderRef; 
-        } */
-
+        ////////////////////////ALMACENA ORDEN EN FIRESTORE////////////////////
         const createOrderFirestore = async () => {
             const newOrderRef = doc(collection(db, 'orders'));
             await setDoc(newOrderRef, order);
-            try {
-                return newOrderRef;
-            } catch (error) {
-                console.log(error);
-            }
-        }
-
-        
-
-
+            return newOrderRef;
+        } 
+        /////////CONFIRMACIÓN DE COMPRA/////////////////////////////
         createOrderFirestore()
             .then(result => { 
-            /*alert('se ha creado la orden:' + result.id); */
-            const mostrarAlerta = () => {
+            const showAlert = () => {
+                /*utiliza sweet alert para confirmar compra*/
                 swal({
                     title: "Su compra se ha realizado con éxito",
                     text: `Orden: ${result.id}`,
@@ -65,23 +47,22 @@ const Cart = ( ) => {
                     timer: 5000,
                 })
             }
-            mostrarAlerta();
+            showAlert();
             test.cartList.map(async (item) => {
                 const itemRef = doc(db, "avdata", item.id);
                 await updateDoc(itemRef, {
                     stock: increment(-item.cantidadItem)
                 })
             })
-            test.eliminaCarrito();})
+            test.cleanCart();})
             .catch(error => console.log(error)); 
     }    
-
     return(
         <>
             <h1 className='tituloCart'>SU COMPRA</h1>
             {
-            //CARRITO VACIO//    
             test.cartList.length === 0 ?
+                 ///////////////INFORMACIÓN EN PANTALLA CUANDO EL CARRITO ESTÁ VACIO/////////////////////    
                 <div>
                     <h2 className='emptyTitle'>No hay productos en el carrito</h2>
                     <div className='emptyCar'>
@@ -89,7 +70,7 @@ const Cart = ( ) => {
                         <Link to='/' style={{ textDecoration: "none", color: "white" }}><button className='textoLink'>Seguir comprando</button></Link>
                     </div>
                 </div>
-                //CARRITO CON PRODUCTOS//
+                ////////////////INFORMACIÓN EN PANTALLA CUANDO EL CARRITO TIENE PRODUCTOS//////////
                 :<div className='cartContainer'>
                     <div className='botoneraCart'>
                     <Link to='/'><button className='btnAgregar'>Seguir comprando</button></Link>
@@ -106,17 +87,17 @@ const Cart = ( ) => {
                                 <div className='datosCart'>
                                             <p>{item.cantidadItem} unidades</p>
                                             <p>Precio ${item.price} c/ul</p><hr/>
-                                            <p className='subtotalCarrito'>Subtotal Producto: ${totalPorProducto(item.id)}</p>
+                                            <p className='subtotalCarrito'>Subtotal Producto: ${totalProduct(item.id)}</p>
                                             <button onClick={() => deleteFromCart(item.id)} >eliminar</button>
                                 </div>
                             </div>
                         ))
-                        //RESUMEN DEL PEDIDO//    
+                        ////////*RESUMEN DEL PEDIDO*///////// 
                     } 
                     </div>
                     <div className='cartRigth'>
                         <h3>DETALLE DEL PEDIDO</h3>
-                        <p>Cantidad de productos: {totalCantidad()} </p><hr/>
+                        <p>Cantidad de productos: {totalQty()} </p><hr/>
                         {
                         test.cartList.map(item => (       
                             <div key={item.id}>
@@ -124,14 +105,14 @@ const Cart = ( ) => {
                             </div>
                         ))
                         }
-                        <p>Subtotal: $ {totalCarrito()}</p>
-                        <p>IVA (21%): $ {calculaIva()}</p><hr/>
-                        <p className='totalCarrito'>TOTAL: $ {totalCompra()} </p>
+                        <p>Subtotal: $ {totalCart()}</p>
+                        <p>IVA (21%): $ {tax()}</p><hr/>
+                        <p className='totalCarrito'>TOTAL: $ {totalPurchase()} </p>
                         <button onClick={createOrder}>CONFIRMAR COMPRA</button>
                     </div> 
                     {
-                        //BANNER ENVIOS GRATIS//
-                    totalCompra() > EnvioGratis &&
+                    totalPurchase() > EnvioGratis &&
+                    ///////BANNER ENVIO GRATIS (solo visible si la compra es > $50.000.-)//////////
                     <div className='envioGratis' key="1000"> 
                         <h4>Envío gratis en compras superiores a $ {EnvioGratis}!!</h4>
                         <img src="https://i.gifer.com/32x8.gif" alt="camión logística"/>     

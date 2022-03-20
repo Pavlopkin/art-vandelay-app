@@ -1,10 +1,10 @@
 import ItemCount from '../components/ItemCount';
 import { useContext, useState } from 'react';
-import BotonCart from './BotonCart';
+import ButtonCart from './ButtonCart';
 import { CartContext } from './CartContext';
 import cargando from '../assets/loading.gif';
 import swal from 'sweetalert';
-
+//////////////////RENDERIZACIÓN DEL DETALLE DE CADA PRODUCTO///////////////////////////////////
 const ItemDetail = ( {item} ) => {
     const [compra, setCompra] = useState(0);
     const test = useContext(CartContext);
@@ -13,6 +13,7 @@ const ItemDetail = ( {item} ) => {
         if(cantidad !== 0){
         setCompra(cantidad);
         const alertSelection = () => {
+            /* utiliza Sweet Alert para mensaje de confirmación*/
             swal({
                 title: "Atención",
                 text: `Ha seleccionado ${cantidad} productos`,
@@ -22,7 +23,6 @@ const ItemDetail = ( {item} ) => {
             })
         }
         alertSelection();
-        /*alert("Usted seleccionó " + cantidad + " productos");*/
         test.addToCart(item, cantidad);
         }
     }    
@@ -46,7 +46,7 @@ const ItemDetail = ( {item} ) => {
                     {
                         compra === 0   
                     ? <ItemCount stock={item.stock} inicial={compra} onAdd={onAdd} className="itemCount"/>
-                    : <BotonCart />
+                    : <ButtonCart />
                     }
                 </div>
             </div>

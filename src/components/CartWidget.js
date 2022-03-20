@@ -3,15 +3,16 @@ import imagen from '../assets/carrito.png';
 import { Link } from 'react-router-dom';
 import { useContext } from 'react';
 import { CartContext } from './CartContext';
-
+////////INOCO DEL CARRITO///////////////////////////
 const CartWidget = () => {
-    const {totalCantidad} = useContext(CartContext);
+    const {totalQty} = useContext(CartContext);
     return (
         <div className='cart'>
             <Link to='/Cart'><img className="carrito" src={imagen} alt="foto"/></Link>
             {
-            totalCantidad() !== 0 &&
-            <p>{totalCantidad()}</p>
+            totalQty() !== 0 &&
+            /*Indica la cantidad de productos en el carrito*/
+            <p>{totalQty()}</p>
             }
         </div> 
     );

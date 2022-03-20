@@ -1,13 +1,14 @@
 import { useState } from 'react';
-
+//////CONTADOR (Sirve para agregar productos al carrito)///////////////
 const ItemCount = ({stock, inicial, onAdd}) => {
     const [cantidad, setCantidad] = useState(0); 
-
+    /*aumenta la cantidad de productos seleccionados*/
     const increment = () => {
         if(cantidad < stock){
             setCantidad(cantidad+1);
         }
     }
+    /*reduce la cantidad de productos selecionados*/
     const decrease = () => {
         if(cantidad > inicial){
             setCantidad(cantidad-1);

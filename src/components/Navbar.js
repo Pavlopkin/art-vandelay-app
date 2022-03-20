@@ -1,6 +1,6 @@
 import CartWidget from './CartWidget';
 import { Link } from 'react-router-dom';
-
+//////BARRA DE NAVEGACIÓN/////////////////////
 const Navbar = () => {
     return (
         <div className="navBar">

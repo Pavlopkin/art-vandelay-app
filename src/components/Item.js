@@ -1,6 +1,6 @@
 import {Link} from 'react-router-dom';
 
-
+///////ESTABLECE EL MODO EN QUE SE RENDERIZARÁN LOS PRODUCTOS////////////////
 const Item = (props) => {
     return (
         <div className="Producto">

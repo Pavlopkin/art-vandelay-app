@@ -3,11 +3,10 @@ import ItemDetail from './ItemDetail.js';
 import { useParams } from 'react-router-dom';
 import { doc, getDoc } from "firebase/firestore";
 import db from '../utils/firebaseConfig';
-
+/////OBTIENE LOS DATOS DEL PRODUCTO QUE SE MOSTRARÁN EL EL ITEM DETAIL/////////////
 const ItemDetailContainer = () => {
   const [products, setProducts] = useState([]);
   const { id } = useParams();
-  console.log(id);
   
     const firestoreFetch = async (id) => {
     const docRef = doc(db, "avdata", id);
