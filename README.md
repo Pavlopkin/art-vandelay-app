@@ -1,70 +1,45 @@
-# Getting Started with Create React App
+# Art Vandelay App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![Captura de la app](https://firebasestorage.googleapis.com/v0/b/art-vandelay-data.appspot.com/o/artV.JPG?alt=media&token=0b6907b1-1b90-4bc0-8638-e1cf55c905db)
 
-## Available Scripts
+Aplicación web del E-commerce de la firma Art Vandelay Industries.
 
-In the project directory, you can run:
+Este proyecto permite la navegación y búsqueda de productos almacenados en una base de datos. Los cuales pueden ser seleccionados y coleccionados en una orden de compra.-
 
-### `npm start`
+Las marcas y productos son utilizados a modo ilustrativos. Los mismos tienen su origen en la Serie televisiva Seinfeld.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Comenzando
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Para acceder al proyecto descarga el archivo zip a tu coputadora.-
 
-### `npm test`
+## Deployment
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Sigue los siguientes pasos para ejecutar la aplicación en tu computadora:
 
-### `npm run build`
+- DESCARGA el archivo zip o rar y almacénalo en tu computadora.-
+- DESCOMPRIME el archivo.- 
+- INSTALA NODE MODULES.-
+- ABRE la consola y dirígete al directorio donde se encuentra guardada la app.-
+- EJECUTA el comando npm start
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+También puedes probar su funcionamento accediendo haciendo clic [aqui](https://pavlopkin.github.io/art-vandelay-app/ ).
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+![App en funcionamiento](https://firebasestorage.googleapis.com/v0/b/art-vandelay-data.appspot.com/o/page.gif?alt=media&token=64f46c8d-bd00-4273-bed1-f146676ea7fd)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+## Construido con:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- React JS.-
+- HTML.-
+- CSS.-
+- Javascript.-
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Autor:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- Pablo R. Gomez - Dev en proceso de formación. -
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Licencia:
 
-## Learn More
+- Se autoriza la copia, modificacion, mejora de este proyecto. El mismo fue creado a los fines de apreder React, por lo que espero seguir mejorándolo gradualmente.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### FIN.
