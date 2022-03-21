@@ -8,11 +8,11 @@ Este proyecto permite la navegación y búsqueda de productos almacenados en una
 
 Las marcas y productos son utilizados a modo ilustrativos. Los mismos tienen su origen en la Serie televisiva Seinfeld.
 
-## Comenzando :computer:
+## Comenzando :electric_plug:
 
 Para acceder al proyecto descarga el archivo zip a tu computadora.-
 
-## Deployment :technologist:
+## Deployment :computer:
 
 Sigue los siguientes pasos para ejecutar la aplicación:
 
@@ -27,19 +27,19 @@ También puedes probar su funcionamento accediendo haciendo clic [aqui](https://
 ![App en funcionamiento](https://firebasestorage.googleapis.com/v0/b/art-vandelay-data.appspot.com/o/page.gif?alt=media&token=64f46c8d-bd00-4273-bed1-f146676ea7fd)
 
 
-## Construido con: 	:hammer_and_wrench:
+## Construido con: 	:toolbox:
 
 - React JS.-
 - HTML.-
 - CSS.-
 - Javascript.-
 
-## Autor: :man_beard:
+## Autor: :alien:
 
 - Pablo R. Gomez - Dev en proceso de formación. -
 
 ## Licencia: :man_judge:
 
-- Se autoriza la copia, modificacion, mejora de este proyecto. El mismo fue creado a los fines de apreder React, por lo que espero seguir mejorándolo gradualmente.
+Se autoriza la copia, modificacion, mejora de este proyecto. El mismo fue creado a los fines de apreder React, por lo que espero seguir mejorándolo gradualmente.
 
 ### FIN. :vulcan_salute:
