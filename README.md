@@ -1,4 +1,4 @@
-# Art Vandelay App
+# Art Vandelay App :convenience_store:
 
 ![Captura de la app](https://firebasestorage.googleapis.com/v0/b/art-vandelay-data.appspot.com/o/artV.JPG?alt=media&token=0b6907b1-1b90-4bc0-8638-e1cf55c905db)
 
@@ -8,13 +8,13 @@ Este proyecto permite la navegación y búsqueda de productos almacenados en una
 
 Las marcas y productos son utilizados a modo ilustrativos. Los mismos tienen su origen en la Serie televisiva Seinfeld.
 
-## Comenzando
+## Comenzando :computer:
 
-Para acceder al proyecto descarga el archivo zip a tu coputadora.-
+Para acceder al proyecto descarga el archivo zip a tu computadora.-
 
-## Deployment
+## Deployment :technologist:
 
-Sigue los siguientes pasos para ejecutar la aplicación en tu computadora:
+Sigue los siguientes pasos para ejecutar la aplicación:
 
 - DESCARGA el archivo zip o rar y almacénalo en tu computadora.-
 - DESCOMPRIME el archivo.- 
@@ -27,19 +27,19 @@ También puedes probar su funcionamento accediendo haciendo clic [aqui](https://
 ![App en funcionamiento](https://firebasestorage.googleapis.com/v0/b/art-vandelay-data.appspot.com/o/page.gif?alt=media&token=64f46c8d-bd00-4273-bed1-f146676ea7fd)
 
 
-## Construido con:
+## Construido con: 	:hammer_and_wrench:
 
 - React JS.-
 - HTML.-
 - CSS.-
 - Javascript.-
 
-## Autor:
+## Autor: :man_beard:
 
 - Pablo R. Gomez - Dev en proceso de formación. -
 
-## Licencia:
+## Licencia: :man_judge:
 
 - Se autoriza la copia, modificacion, mejora de este proyecto. El mismo fue creado a los fines de apreder React, por lo que espero seguir mejorándolo gradualmente.
 
-### FIN.
+### FIN. :vulcan_salute:
