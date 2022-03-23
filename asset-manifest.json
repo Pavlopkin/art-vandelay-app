@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/art-vandelay-app/static/css/main.499e9eee.css",
-    "main.js": "/art-vandelay-app/static/js/main.c674444b.js",
+    "main.css": "/art-vandelay-app/static/css/main.0874805e.css",
+    "main.js": "/art-vandelay-app/static/js/main.525e969d.js",
     "static/js/787.a5a73460.chunk.js": "/art-vandelay-app/static/js/787.a5a73460.chunk.js",
     "static/media/loading.gif": "/art-vandelay-app/static/media/loading.6a22600b755ac57f4b54.gif",
     "static/media/carrito.png": "/art-vandelay-app/static/media/carrito.240661d98897727dd0ee.png",
     "index.html": "/art-vandelay-app/index.html",
-    "main.499e9eee.css.map": "/art-vandelay-app/static/css/main.499e9eee.css.map",
-    "main.c674444b.js.map": "/art-vandelay-app/static/js/main.c674444b.js.map",
+    "main.0874805e.css.map": "/art-vandelay-app/static/css/main.0874805e.css.map",
+    "main.525e969d.js.map": "/art-vandelay-app/static/js/main.525e969d.js.map",
     "787.a5a73460.chunk.js.map": "/art-vandelay-app/static/js/787.a5a73460.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.499e9eee.css",
-    "static/js/main.c674444b.js"
+    "static/css/main.0874805e.css",
+    "static/js/main.525e969d.js"
   ]
 }
