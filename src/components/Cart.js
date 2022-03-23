@@ -88,7 +88,7 @@ const Cart = ( ) => {
                                             <p>{item.cantidadItem} unidades</p>
                                             <p>Precio ${item.price} c/ul</p><hr/>
                                             <p className='subtotalCarrito'>Subtotal Producto: ${totalProduct(item.id)}</p>
-                                            <button onClick={() => deleteFromCart(item.id)} >eliminar</button>
+                                            <button onClick={() => deleteFromCart(item.id)} className="btnCart">eliminar</button>
                                 </div>
                             </div>
                         ))
@@ -108,7 +108,7 @@ const Cart = ( ) => {
                         <p>Subtotal: $ {totalCart()}</p>
                         <p>IVA (21%): $ {tax()}</p><hr/>
                         <p className='totalCarrito'>TOTAL: $ {totalPurchase()} </p>
-                        <button onClick={createOrder}>CONFIRMAR COMPRA</button>
+                        <button className="btnCart" onClick={createOrder}>CONFIRMAR COMPRA</button>
                     </div> 
                     {
                     totalPurchase() > EnvioGratis &&

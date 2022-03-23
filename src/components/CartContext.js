@@ -22,8 +22,12 @@ const CartContextProvider = ({children}) => {
             ]);
         }else {
             exist.cantidadItem += cantidad;
+            setCartList([
+                ...cartList
+            ]);
         }
     }
+    console.log(cartList.length);
     //////ELIMINA PRODUCTO DEL CARRITO///////////////////
     const deleteFromCart = (id) => {
             /* mensaje de confirmación generado con Sweet Alert*/
@@ -76,9 +80,9 @@ const CartContextProvider = ({children}) => {
         return totalperProduct.reduce((previousValue, currentValue) => previousValue + currentValue);
     }
     /////////CALCULA LA CANTIDAD DE PRODUCTOS COMPRADA SIN DISCRIMINAR ENTRE ITEMS////////////////
-    const totalQty = () => {
+    const totalQty = () => {  
         let totalCantidad = cartList.map(item => item.cantidadItem);
-        return totalCantidad.reduce(((previousValue, currentValue) => previousValue + currentValue),0);
+        return totalCantidad.reduce(((previousValue, currentValue) => previousValue + currentValue),0); 
     }
     //////////CALCULA IMPUESTOS (IVA)//////////////////////////////////////////////////
     const tax = () => {
@@ -88,12 +92,13 @@ const CartContextProvider = ({children}) => {
     const totalPurchase = () => {
         return tax() + totalCart();
     }
+
+    
     return (
         <CartContext.Provider value={{cartList, addToCart, deleteFromCart, refreshCart, cleanCart,  totalProduct, totalCart, totalQty, tax, totalPurchase}}>
             {children}
         </CartContext.Provider>
     );
 }
-
 export default CartContextProvider;
 

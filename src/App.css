@@ -331,3 +331,13 @@
   border-top: 1px solid #E9EEF1;
   overflow: hidden;
 }
+.btnCart{
+  font-weight: 600;
+  font-size: 0.8em;
+  background-color: rgb(233, 179, 79);
+  border-radius: 15%;
+  padding: 5px;
+}
+.btnCart:hover{
+  background-color: rgb(245, 78, 27);
+}
